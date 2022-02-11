@@ -14,6 +14,7 @@ jobs:
       - run: yarn install
       - run: git config --global user.email "furkanyildiz58.fy@gmail.com"
       - run: git config --global user.name "furkanyildizz"
+      - run: npm cache clean --force
       - run: npm version 1.0.1
       - run: npm publish --access public
         env:
