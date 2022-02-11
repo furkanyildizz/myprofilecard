@@ -13,7 +13,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: yarn install
       - run: git config --global user.email "furkanyildiz58.fy@gmail.com"
-             git config --global user.name "furkanyildizz"
+      - run: git config --global user.name "furkanyildizz"
       - run: npm version 1.0.1
       - run: npm publish --access public
         env:
