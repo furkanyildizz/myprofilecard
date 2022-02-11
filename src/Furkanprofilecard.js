@@ -22,6 +22,7 @@ const Furkanprofilecard = ({name,text,location,links}) => {
 
           </span>
         </div>
+        
     
         {/* <div className="profile-card-social">
           <a href="https://www.facebook.com/iaMuhammedErdem" className="profile-card-social__item facebook" target="_blank">
