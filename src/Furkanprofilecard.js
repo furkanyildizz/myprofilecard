@@ -1,5 +1,6 @@
 import React from 'react';
 import './Furkanprofilecard.scss'
+
 const Furkanprofilecard = ({name,text,location,links}) => {
 
   return(
