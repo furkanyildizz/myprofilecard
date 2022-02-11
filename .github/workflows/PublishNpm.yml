@@ -11,6 +11,7 @@ jobs:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
       - run: yarn install
-      - run: npm publish --tag beta
+      - run: npm version 1.0.1
+      - run: npm publish 
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
