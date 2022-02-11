@@ -3,7 +3,6 @@ import './Furkanprofilecard.scss'
 
 const Furkanprofilecard = ({name,text,location,links}) => {
 
-  
   return(
    <div>
   <div className="wrapper">
