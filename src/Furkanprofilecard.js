@@ -22,6 +22,12 @@ const Furkanprofilecard = ({name,text,location,links}) => {
 
           </span>
         </div>
+        {/* daskdaskdksadkas
+        
+        
+        
+        
+        */}
 
     
         {/* <div className="profile-card-social">
