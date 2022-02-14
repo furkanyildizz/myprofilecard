@@ -1,6 +1,9 @@
 name: Publish
 
-on: push
+on:
+  push:
+    tags:
+    - 'v*'
 
 jobs:
   build:
@@ -15,7 +18,10 @@ jobs:
       - run: git config --global user.email "furkanyildiz58.fy@gmail.com"
       - run: git config --global user.name "furkanyildizz"
       - run: npm cache clean --force
-      - run: npm version 1.0.1
+      - name: 'Get Version'
+        id: version
+        uses: battila7/get-version-action@v2
+      - run: npm version ${{ steps.version.outputs.version-without-v }}
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
