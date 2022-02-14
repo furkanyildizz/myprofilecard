@@ -2,26 +2,34 @@ name: Publish
 
 on:
   push:
-    tags:
-    - 'v*'
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 16
-          registry-url: https://registry.npmjs.org/
       - run: yarn install
-      - run: git config --global user.email "furkanyildiz58.fy@gmail.com"
-      - run: git config --global user.name "furkanyildizz"
-      - run: npm cache clean --force
-      - name: Set output
-        id: vars
-        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
-      - run: npm --no-git-tag-version version patch
-      - run: npm publish --access public
+      - run: yarn test
+
+  publish-gpr:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://npm.pkg.github.com/
+          scope: '@windix'
+      - run: yarn install
+      - run: git config --global user.email "furkanyildiz58.fy@gmail.com" && git config --global user.name "furkanyildizz"
+      - run: yarn version --minor
+      - run: git push --tags && git push
+      - run: yarn publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
