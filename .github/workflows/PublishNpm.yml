@@ -23,8 +23,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 16
-          registry-url: https://npm.pkg.github.com/
-          scope: '@windix'
+          registry-url: https://registry.npmjs.org/
       - run: yarn install
       - run: git config --global user.email "furkanyildiz58.fy@gmail.com" && git config --global user.name "furkanyildizz"
       - run: yarn version --patch
