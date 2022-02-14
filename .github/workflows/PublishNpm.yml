@@ -27,6 +27,7 @@ jobs:
       - run: yarn install
       - run: git config --global user.email "furkanyildiz58.fy@gmail.com" && git config --global user.name "furkanyildizz"
       - run: yarn version --patch
+      - run: git push --tags && git push
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
