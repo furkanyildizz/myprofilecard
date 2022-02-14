@@ -7,7 +7,6 @@ const Furkanprofilecard = ({name,text,location,links}) => {
    <div>
 
   <div className="wrapper">
-    
     <div className="profile-card js-profile-card">
       <div className="profile-card__img">
         <img src="https://res.cloudinary.com/muhammederdem/image/upload/v1537638518/Ba%C5%9Fl%C4%B1ks%C4%B1z-1.jpg" alt="profile card" />
