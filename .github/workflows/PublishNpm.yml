@@ -21,7 +21,7 @@ jobs:
       - name: Set output
         id: vars
         run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
-      - run: npm version ${{steps.vars.outputs.tag}}
+      - run: npm --no-git-tag-version version patch
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
